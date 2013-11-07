@@ -1,4 +1,6 @@
-var compressionTests = function(compress, decompress) {
+LZString = require("../main")
+
+describe("LZString", function(compress, decompress) {
     it('compresses and decompresses  "Hello world!"', function() {
         var compressed = compress('Hello world!');
         expect(compressed).not.toBe('Hello world!');
@@ -78,14 +80,15 @@ var compressionTests = function(compress, decompress) {
         var decompressed = decompress(compressed);
         expect(decompressed).toBe(testString);
     });
-};
+});
 
 describe('LZString', function() {
-    describe('base 64', function() {
+    it('base 64', function() {
         compressionTests(LZString.compressToBase64,
                          LZString.decompressFromBase64);
     });
-    describe('UTF-16', function() {
+
+    it('UTF-16', function() {
         compressionTests(LZString.compressToUTF16,
                          LZString.decompressFromUTF16);
     });

@@ -1,0 +1,4 @@
+version: "1.3.3"
+remoteDependencies: [
+  "http://strd6.github.io/require/v0.2.2.js"
+]
